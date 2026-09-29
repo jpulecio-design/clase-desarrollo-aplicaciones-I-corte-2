@@ -1,0 +1,211 @@
+/* ==========================================
+   1. VARIABLES Y RESETEO (Colores base)
+   ========================================== */
+:root {
+    /* Colores extraídos de tus banners */
+    --color-primario: #ff8c00;
+    /* Naranja del banner 1 */
+    --color-secundario: #0a4b8c;
+    /* Azul oscuro del banner 2 */
+    --color-acento: #00a8ff;
+    /* Azul brillante */
+    --color-fondo: #f4f7f6;
+    /* Gris muy claro para el fondo de la página */
+    --color-texto: #333333;
+    /* Gris oscuro para leer cómodo */
+    --color-blanco: #ffffff;
+
+    /* Sombras y transiciones */
+    --sombra-suave: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --sombra-fuerte: 0 10px 20px rgba(0, 0, 0, 0.15);
+    --transicion: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   2. HEADER (BANNER)
+   ========================================== */
+header {
+    width: 100%;
+    background-color: var(--color-blanco);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    /* Sombra sutil */
+    display: flex;
+    justify-content: center;
+}
+
+header img {
+    width: 100%;
+    max-width: 1400px;
+    /* Ancho máximo para pantallas grandes */
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* ==========================================
+   3. NAVEGACIÓN (MENÚ CON EFECTO DE ILUMINACIÓN)
+   ========================================== */
+nav {
+    background-color: var(--color-secundario);
+    /* Azul oscuro */
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--sombra-suave);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Permite que los items bajen si la pantalla es pequeña */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--color-blanco);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: var(--transicion);
+    position: relative;
+}
+
+/* --- EFECTO DE ILUMINACIÓN AL PASAR EL MOUSE --- */
+nav ul li a:hover {
+    background-color: rgba(255, 140, 0, 0.15);
+    /* Fondo naranja muy sutil */
+    color: var(--color-primario);
+    /* El texto cambia a naranja */
+    text-shadow: 0 0 8px rgba(255, 140, 0, 0.6);
+    /* Brillo en el texto */
+    transform: translateY(-2px);
+    /* Pequeño salto hacia arriba */
+}
+
+/* Línea inferior brillante al hacer hover */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: var(--color-primario);
+    transition: var(--transicion);
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover::after {
+    width: 80%;
+    /* La línea crece al pasar el mouse */
+    box-shadow: 0 0 10px var(--color-primario);
+    /* Brillo en la línea */
+}
+
+/* ==========================================
+   4. SECCIÓN PRINCIPAL (CONTENIDO)
+   ========================================== */
+section {
+    flex: 1;
+    /* Ocupa el espacio restante */
+    max-width: 1200px;
+    width: 90%;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: var(--color-blanco);
+    border-radius: 8px;
+    box-shadow: var(--sombra-suave);
+    /* Borde lateral decorativo estilo banner 1 */
+    border-left: 6px solid var(--color-primario);
+}
+
+section h1,
+section h2 {
+    color: var(--color-secundario);
+    margin-bottom: 20px;
+}
+
+section p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* ==========================================
+   5. FOOTER (PIE DE PÁGINA)
+   ========================================== */
+footer {
+    background-color: #1a1a1a;
+    /* Negro/gris oscuro como el banner 1 */
+    color: #b0b0b0;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: auto;
+    border-top: 4px solid var(--color-primario);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   6. RESPONSIVE (ADAPTACIÓN A MÓVILES)
+   ========================================== */
+@media (max-width: 768px) {
+    header img {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        /* Menú vertical en móviles */
+        align-items: center;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        padding: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav ul li a::after {
+        display: none;
+        /* Ocultar la línea inferior en móviles */
+    }
+
+    section {
+        padding: 20px;
+        margin: 20px auto;
+    }
+}
