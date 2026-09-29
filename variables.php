@@ -18,17 +18,17 @@
     <h1> Variables </h1>
     En PHP las variables empiezan con el símbolo $ y no requieren declaración de tipo.
     <?php
-    $nombre = "Ena Mora de Alegria";
+    $nombre = "Juan Andres Pulecio";
     echo "<br> Nombre $nombre ";
 
-    $nombre = 20;
+    $nombre = 19;
     echo "<br> Edad $nombre ";
     $nombre = true;
-    echo "<br> Viuda $nombre ";
+    echo "<br> Soltero $nombre ";
     if ($nombre == true) {
-        echo "Esta viuda y a la orden chin chu macho";
+        echo "Esta soltero buscando una buena hembra";
     } else
-        echo "No esta viuda ";
+        echo "JAJAJAJASJ No picha";
 
     ?>
 
