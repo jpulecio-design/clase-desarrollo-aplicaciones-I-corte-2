@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'manualPython/control_sesion.php';
 //datos de la base de datos
 $loginUsuario = "admin";
 $claveUsuario = "123";
@@ -10,7 +11,7 @@ if (isset($_POST['enviar'])) {
     $clave = $_POST['clave'];
 
     if (($login == $loginUsuario) && ($clave == $claveUsuario)) {
-        $_SESSION['nombre'] = $nombre;
+        iniciarSesionManual($nombre);
         header('Location: manualPython/index.php');
         exit();
     } else {
