@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LLM en el aula | Demo full-stack</title><link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main class="shell">
+  <div class="eyebrow">LOGICLOOP · TALLER PRÁCTICO</div>
+  <h1>Tu primera IA conectada a una web</h1>
+  <p class="lede">HTML/CSS/JS → Python → Ollama u OpenRouter → Respuesta visible y logs en consola.</p>
+  <div id="state" class="state" role="status">Conectando con el servidor…</div>
+  <section class="card">
+    <label for="message">Escribe una pregunta para tu asistente</label>
+    <textarea id="message" maxlength="4000" rows="5">Explícame qué es un algoritmo con un ejemplo para principiantes.</textarea>
+    <div class="actions"><span>La clave API nunca se escribe aquí.</span><button id="send" type="button">Enviar al backend</button></div>
+  </section>
+  <section class="card response" aria-live="polite">
+    <h2>Respuesta</h2><pre id="answer">Aún no se ha enviado ninguna petición.</pre>
+    <div class="metadata" id="metadata"></div>
+  </section>
+  <footer>Abre la consola de Python para ver cada petición y la respuesta del proveedor. Las respuestas de un LLM requieren verificación humana.</footer>
+</main>
+<script src="/app.js" defer></script>
+</body></html>
